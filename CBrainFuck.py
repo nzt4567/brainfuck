@@ -168,33 +168,34 @@ class BrainFuck():
   def bf2dict(self, data_):
     ''' Convert source code into internal form for faster execution '''
 
+    def save_prev():
+      ''' Save previous instruction into dict() '''
+
+      nonlocal prev, c
+      if prev[0] in nc:
+        p[prev[1]] = (prev[0], c)
+      prev = (data_[i], i)
+      c = 1
+
     p = dict() # Program in internal form
     s = list() # Stack for loops parsing
     L = len(data_) # Input length
     i = 0 # Helper IP
     c = 0 # Same instructions counter
     prev = (data_[i], i) # Previous inst. (instr_type, instr_addr)
+    nc = ('>', '<', '+', '-', '.', ',') # Non-control instructions
 
     for i in range(0, L): # Convert source code to dict() representation
-      if data_[i] in ('>', '<', '+', '-', '.', ','):
+      if data_[i] in nc:
         if data_[i] == prev[0]:
           c += 1
         else:
-          if prev[0] in ('>', '<', '+', '-', '.', ','):
-            p[prev[1]] = (prev[0], c)
-          prev = (data_[i], i)
-          c = 1
+          save_prev()
       elif data_[i] == '[':
-        if prev[0] in ('>', '<', '+', '-', '.', ','):
-          p[prev[1]] = (prev[0], c)
-        prev = (data_[i], i)
-        c = 1
+        save_prev()
         s.append(i)
       elif data_[i] == ']':
-        if prev[0] in ('>', '<', '+', '-', '.', ','):
-          p[prev[1]] = (prev[0], c)
-        prev = (data_[i], i)
-        c = 1
+        save_prev()
         a = s.pop()
         p[a] = ('[', i + 1)
         p[i] = (']', a)
@@ -203,7 +204,7 @@ class BrainFuck():
         i -= 1
         break
 
-    if prev[0] in ('>', '<', '+', '-', '.', ','):
+    if prev[0] in nc:
       p[prev[1]] = (prev[0], c)
     p[i+1] = ('@', 0) # Add STOP instruction
     
