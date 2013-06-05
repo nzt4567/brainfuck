@@ -1,8 +1,7 @@
 brainfuck
 =========
 
-Brainfuck/Brainloller/Braincopter programming language interpreter written in python
-So far, only the brainfuck interpreter is finished :/ 
+Brainfuck/Brainloller/Braincopter programming language interpreter written in python. So far, only the brainfuck interpreter is finished.
 
 
 
