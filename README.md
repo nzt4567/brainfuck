@@ -1,15 +1,15 @@
 brainfuck
 =========
 
-Brainfuck/Brainloller/Braincopter programming language interpreter written in python. So far, only the brainfuck interpreter is finished.
-
+Brainfuck/Brainloller/Braincopter programming language interpreter.
+Requires python3.3 or higher. Example programs included.
+Have fun!
 
 
 usage
 =====
 
 Just run "python brainfuck path_to_source" OR "python brainfuck source_code" and your code will get executed immediately.
-
 
 
 warning
