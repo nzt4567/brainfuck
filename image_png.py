@@ -1,21 +1,17 @@
-﻿#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+﻿#!/usr/bin/env python
 
-'''
-  PNG pictures parser
-  Author: Tomas Kvasnicka
-'''
+''' Simple PNG files parser; author: nzt4567; year: 2012/2013 '''
 
 # IMPORTS
-import zlib
+import std, zlib
 
 # CREDITS
-__author__  = "Tomas Kvasnicka"
-__email__   = "kvasntom@fit.cvut.cz"
-__status__  = "Development"
-__version__ = "0.1"
-__license__ = "GNU GPL v3"
-__year__    = "2013"
+__author__  = std.__author__
+__email__   = std.__email__
+__status__  = std.__status__
+__version__ = std.__version__
+__license__ = std.__license__
+__year__    = std.__year__
 
 ######################### E - WRONG PNG HEADER ##########################
 class PNGWrongHeaderError(Exception):
