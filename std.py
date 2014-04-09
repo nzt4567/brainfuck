@@ -1,8 +1,7 @@
 #!/usr/bin/env python
-'''
-  Brainfuck / Brainloller / Braincopter programming language interpreter.
-
-  Author: nzt4567 (nzt4567 (at) gmx (dot) com)                 Year: 2013
+'''  
+  Helper functions and constants for other modules
+  Author: nzt4567; Mail: nzt4567@gmx.com; Year: 2012/2013
 '''
 
 # IMPORTS
@@ -45,7 +44,11 @@ def exit_failure(code_, err_=None):
 
   ec = { "INVALID_CODE": 1,
          "BF_PROCESS_INPUT": 10,
-         "BF_EXECUTE_CODE": 15 }
+         "BF_EXECUTE_CODE": 15,
+         "BL_DECODE_PNG": 20,
+         "BL_PROCESS_INPUT": 25,
+         "BC_DECODE_PNG": 30,
+         "BC_PROCESS_INPUT": 35 }
 
   if code_ not in ec:
     code_ = "INVALID_CODE"

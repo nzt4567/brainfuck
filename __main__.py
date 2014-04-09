@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-''' bF/bL/bC interpreter; author: nzt4567; year: 2013 '''
+''' bF/bL/bC interpreter; author: nzt4567; year: 2012/2013 '''
 
 # IMPORTS
-import std, CBrainFuck
+import std, brainx
 
 # CREDITS
 __author__  = std.__author__
@@ -19,11 +19,11 @@ def main():
 
   a = std.pa()
   if a['type'] == 'F':
-    CBrainFuck.BrainFuck(a['source'])
+    brainx.BrainFuck(a['source'])
   elif a['type'] == 'L':
-  	pass
+    brainx.BrainLoller(a['source'])
   else:
-  	pass
+    brainx.BrainCopter(a['source'])
 
 if __name__ == '__main__':
     main()
